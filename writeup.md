@@ -19,8 +19,8 @@ The goals / steps of this project are the following:
 [trainingdata_org_histogram]: ./writeup_images/trainingdata_org_histogram.png "Original trainingdata histogram"
 [affine_transformed]: ./writeup_images/affine_transformed.png "Affine transformed images"
 [trainingdata_egalized_histogram]: ./writeup_images/trainingdata_egalized_histogram.png "Egalized trainingdata histogram"
-
 [trainingdata_preprozessed]: ./writeup_images/trainingdata_preprozessed.png "Training Data preprozessed"
+[5_traffic_signs]: ./writeup_images/5_traffic_signs.png "German traffic signs from the web"
 
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
 [image5]: ./examples/placeholder.png "Traffic Sign 2"
@@ -175,8 +175,7 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][5_traffic_signs] 
 
 The first image might be difficult to classify because ...
 
