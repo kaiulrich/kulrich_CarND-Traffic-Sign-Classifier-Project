@@ -133,12 +133,15 @@ EPOCHS = 50:
 BATCH_SIZE = 300
 
 **Arguments used for the AdamOptimizer**
+
 learning_rate = 0.001
 
 **Argument used by dropout**
+
 keep_prop = 0.75 
 
 **Arguments used for tf.truncated_normal, randomly defines variables for the weights and biases for each layer:**
+
 mu = 0
 sigma = 0.2 
 
