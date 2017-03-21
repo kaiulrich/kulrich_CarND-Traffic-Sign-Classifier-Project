@@ -1,6 +1,5 @@
 # **Traffic Sign Recognition** 
 
----
 
 **Build a Traffic Sign Recognition Project**
 
@@ -24,18 +23,23 @@ The goals / steps of this project are the following:
 [trainingdata_egalized_histogram]: ./writeup_images/trainingdata_egalized_histogram.png "Egalized trainingdata histogram"
 [trainingdata_preprozessed]: ./writeup_images/trainingdata_preprozessed.png "Training Data preprozessed"
 [5_traffic_signs]: ./writeup_images/5_traffic_signs.png "German traffic signs from the web"
-
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-
+[result_sign_stop]: ./writeup_images/result_sign_stop.png "Results for stop sign"
+[result_sign_80]: ./writeup_images/result_sign_80.png "Results for speed limit 80 km/h"
+[result_sign_100]: ./writeup_images/result_sign_100.png "Results for speed limit 100 km/h"
+[result_sign_no_vehicles]: ./writeup_images/result_sign_no_vehicles.png "Results for no vehicles"
+[result_sign_yield]: ./writeup_images/result_sign_yield.png "Results for yield"
+[graph_sign_stop]: ./writeup_images/graph_sign_stop.png "Graph for stop sign"
+[graph_sign_80]: ./writeup_images/graph_sign_80.png "Graph for speed limit 80 km/h"
+[graph_sign_100]: ./writeup_images/graph_sign_100.png "Graph for speed limit 100 km/h"
+[graph_sign_no_vehicles]: ./writeup_images/graph_sign_no_vehicles.png "Graph for no vehicles"
+[graph_sign_yield]: ./writeup_images/graph_sign_yield.png "Graph for yield"
 
 ### Files included
-*  The programmed Solution [Traffic_Sign_Classifier.ipynb](https://github.com/kaiulrich/kulrich_CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+*  The programmed Solution [Traffic_Sign_Classifier.ipynb](https://github.com/kaiulrich/kulrich_CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb) 
 
 * The saved result  [Traffic_Sign_Classifier.html](./Traffic_Sign_Classifier.html)
+
+---
 
 ### Data Set Summary & Exploration
 
@@ -63,6 +67,9 @@ for the code look at "Trainingdata images before preprozessing" chapter of the i
 for the code look at "Histogram of training data" chapter of the ipython notebook. 
 ![alt text][trainingdata_org_histogram]
 
+---
+
+
 ### Design and Test a Model Architecture
 
 #### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
@@ -89,19 +96,27 @@ for the code look at "Pre-process the Data Set" chapter of the ipython notebook.
 
 ![alt text][trainingdata_preprozessed]
 
+##### c. shuffel data
+
+The taindata had been shuffeld before the splitting.
+For the code look at "Split data" chapter of the ipython notebook. 
+
+---
+
 #### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. 
 
 To cross validate my model, I randomly split the training data into a training set (80 %) and validation set (20%). I did this by using 'train_test_split' function of the sklearn.model_selection package. 
-for the code look at "Split data" chapter of the ipython notebook. 
+For the code look at "Split data" chapter of the ipython notebook. 
 
 My original training set had 34799 images. 
 My final training set had 53904 number of images. 
 My final validation set and test set had 13476 and 12630 number of images.
 
+---
 
 #### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-for the code look at "Model Architecture" chapter of the ipython notebook.
+For the code look at "Model Architecture" chapter of the ipython notebook.
 
 My final model consisted of the following layers:
 
@@ -125,13 +140,14 @@ My final model consisted of the following layers:
 | RELU				|										|
 | Fully connected		| outputs 43        						       	|
 
+---
 
 #### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 To train the model, I used following hyperparameters
 
 
-EPOCHS = 50:
+EPOCHS = 200:
 
 BATCH_SIZE = 300
 
@@ -148,16 +164,18 @@ keep_prop = 0.75
 mu = 0
 sigma = 0.2 
 
-The the code look at "Training Pipeline" chapter of the ipython notebook.
+For the code look at "Training Pipeline" chapter of the ipython notebook.
+
+---
 
 #### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
+The code for calculating the accuracy of the model is in the "Evaluate the Model" chapter of the ipython notebook.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+
+* Validation Accuracy = 0.976
+* Test Accuracy = 0.939
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -171,6 +189,7 @@ If a well known architecture was chosen:
 * Why did you believe it would be relevant to the traffic sign application?
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
  
+ ---
 
 ### Test a Model on New Images
 
@@ -184,42 +203,69 @@ I was sure that the stop and the yield image were easy. They have a unic shape.
 The speed limit 80 image is more difficult, because the 20 30 60  signs are very similar. 
 I was sure the No vehicles sign is dificult to detect, because it has an white square sign below.
 
+---
+
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
+The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80% (0.800). This compares favorably to the accuracy on the test set of 0.939.
+For the code look at "Analyze Performance" 
 
-Here are the results of the prediction:
-
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
-
-
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+---
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+For the code for making predictions on my final model look Ipython notebook chapter "Output Top 5 Softmax Probabilities For Each Image Found on the "
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+Here are the results of the prediction:
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+**sign to detect : Stop (14)**
 
+14 - Stop                           - 1.0000000000
+29 - Bicycles crossing              - 0.0000000000
+17 - No entry                       - 0.0000000000
+![alt text][result_sign_stop]
+![alt text][graph_sign_stop]
 
-For the second image ... 
+**sign to detect : Speed limit (80km/h) (5)**
 
+ 5 - Speed limit (80km/h)           - 1.0000000000
+ 3 - Speed limit (60km/h)           - 0.0000000075
+ 2 - Speed limit (50km/h)           - 0.0000000000
+ ![alt text][result_sign_80]
+  ![alt text][graph_sign_80]
 
+**sign to detect : Speed limit (100km/h) (7)**
 
+ 7 - Speed limit (100km/h)          - 1.0000000000
+ 5 - Speed limit (80km/h)           - 0.0000000000
+ 2 - Speed limit (50km/h)           - 0.0000000000
+
+ ![alt text][result_sign_100]
+ ![alt text][graph_sign_100]
+
+**sign to detect : No vehicles (15)**
+
+ 9 - No passing                     - 1.0000000000
+13 - Yield                          - 0.0000000077
+10 - No passing for vehicles over 3.5 metric tons - 0.0000000000
+
+ ![alt text][result_sign_no_vehicles]
+ ![alt text][graph_sign_no_vehicles]
+ 
+**sign to detect : Yield (13)**
+
+13 - Yield                          - 1.0000000000
+42 - End of no passing by vehicles over 3.5 metric tons - 0.0000000000
+38 - Keep right                     - 0.0000000000
+
+ ![alt text][result_sign_yield]
+ ![alt text][graph_sign_yield]
+
+---
+
+## TODO 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+
+## TODO 5. Describe the approach taken for finding a solution.
 ## TODO reflection 
 - prprozessing
 - selection images to test
