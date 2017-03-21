@@ -180,7 +180,9 @@ Here are five German traffic signs that I found on the web:
 
 ![alt text][5_traffic_signs] 
 
-The first image might be difficult to classify because ...
+I was sure that the stop and the yield image were easy. They have a unic shape. 
+The speed limit 80 image is more difficult, because the 20 30 60  signs are very similar. 
+I was sure the No vehicles sign is dificult to detect, because it has an white square sign below.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -223,3 +225,4 @@ For the second image ...
 - selection images to test
 - layers
 - hüperparameters
+- batchsize 50 - 200
