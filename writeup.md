@@ -12,6 +12,9 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 ---
+### Rubric Points
+#### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation. 
+---
 
 [//]: # (Image References)
 
