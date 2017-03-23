@@ -263,26 +263,28 @@ Here are the results of the prediction:
 * 14 - Stop                           - 1.0000000000
 * 29 - Bicycles crossing              - 0.0000000000
 * 17 - No entry                       - 0.0000000000
+
 ![alt text][result_sign_stop]
 ![alt text][graph_sign_stop]
 
 
 **sign to detect : Speed limit (80km/h) (5)**
 
- * 5 - Speed limit (80km/h)           - 1.0000000000
- * 3 - Speed limit (60km/h)           - 0.0000000075
- * 2 - Speed limit (50km/h)           - 0.0000000000
- ![alt text][result_sign_80]
-  ![alt text][graph_sign_80]
+* 5 - Speed limit (80km/h)           - 1.0000000000
+* 3 - Speed limit (60km/h)           - 0.0000000075
+* 2 - Speed limit (50km/h)           - 0.0000000000
+ 
+![alt text][result_sign_80]
+![alt text][graph_sign_80]
 
 **sign to detect : Speed limit (100km/h) (7)**
 
- * 7 - Speed limit (100km/h)          - 1.0000000000
- * 5 - Speed limit (80km/h)           - 0.0000000000
- * 2 - Speed limit (50km/h)           - 0.0000000000
+* 7 - Speed limit (100km/h)          - 1.0000000000
+* 5 - Speed limit (80km/h)           - 0.0000000000
+* 2 - Speed limit (50km/h)           - 0.0000000000
 
- ![alt text][result_sign_100]
- ![alt text][graph_sign_100]
+![alt text][result_sign_100]
+![alt text][graph_sign_100]
 
 **sign to detect : No vehicles (15)**
 
@@ -290,8 +292,8 @@ Here are the results of the prediction:
 * 13 - Yield                          - 0.0000000077
 * 10 - No passing for vehicles over 3.5 metric tons - 0.0000000000
 
- ![alt text][result_sign_no_vehicles]
- ![alt text][graph_sign_no_vehicles]
+![alt text][result_sign_no_vehicles]
+![alt text][graph_sign_no_vehicles]
  
 **sign to detect : Yield (13)**
 
@@ -299,8 +301,8 @@ Here are the results of the prediction:
 * 42 - End of no passing by vehicles over 3.5 metric tons - 0.0000000000
 * 38 - Keep right                     - 0.0000000000
 
- ![alt text][result_sign_yield]
- ![alt text][graph_sign_yield]
+![alt text][result_sign_yield]
+![alt text][graph_sign_yield]
  
  
  * Like expected there was no problem to indicate the "Stop" and "Yield" sign.
