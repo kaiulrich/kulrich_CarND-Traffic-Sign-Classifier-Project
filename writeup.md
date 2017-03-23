@@ -39,6 +39,7 @@ The goals / steps of this project are the following:
 
 * The saved result  [Traffic_Sign_Classifier.html](./Traffic_Sign_Classifier.html)
 
+
 ---
 
 ### Data Set Summary & Exploration
@@ -177,18 +178,55 @@ My final model results were:
 * Validation Accuracy = 0.976
 * Test Accuracy = 0.939
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+I started with [LeNet-5](http://yann.lecun.com/exdb/lenet/)  Architekture for letter recognition. LeNet-5 solved a similar kind of problem: 
+"LeNet-5 Network is designed to recognize visual patterns directly from pixel images with minimal preprocessing.  It can recognize patterns with extreme variability (such as handwritten characters), and with robustness to distortions and simple geometric transformations."
  
+ The first test with the Network and unpreprozessed images  had a Validation and Test Accurcy around 0.7. 
+
+The next configuration I tesed had been with a min max normalisation an the Validation encreased over 0.92 the Test Accurcy 0.83 
+After adding the the trainingdata egalisation it wasn't mutch different.
+
+Than made was to encrease the sigma ( randomly defines variables for the weights and biases for each layer) from 0.1 to 0.2. The Validation Accurcy encreased over 0.95. the Test Accurcy stayed arround 0.870
+
+Than I added the dropout layers. I chosed to put them to the first and second Fully Connected layers. The Validation Accurcy encreased a bit 0.970. But Test Accurcy enccreased to 0.927. But the Validation Accurcy encreased a lot slower.
+
+Than I chaned the number of full connected layer, I tested 2, 3  layers.
+I got vollowing results: 
+
+2 full connected layers
+Validation Accuracy = 0.972
+est Accuracy = 0.921
+
+3 full connected layers
+Validation Accuracy = 0.970
+Test Accuracy = 0.927
+
+
+I decided to stay with the 3 full connected layers. because the cost are moderate and test and Test Accuracy was better.
+
+
+Now I started to encrease the number of epochs.
+
+50 epochs
+Validation Accurcy 0.970
+Test Accurcy 0.927
+
+100 epochs 
+Validation Accurcy 0.977
+Test Accurcy 0.919
+
+200 epochs 
+Validation Accurcy 0.976
+Test Accurcy 0.939
+
+300 epochs 
+Validation Accurcy 0.977
+Test Accurcy 0.931
+
+
+At 300 epochs the Validation Accurcy still increases  but the Test Accurcy decreases. This may indicate an offerfitting.
+I decided to stay with the 200 epoch training cycle.
  ---
 
 ### Test a Model on New Images
@@ -226,6 +264,7 @@ Here are the results of the prediction:
 ![alt text][result_sign_stop]
 ![alt text][graph_sign_stop]
 
+
 **sign to detect : Speed limit (80km/h) (5)**
 
  5 - Speed limit (80km/h)           - 1.0000000000
@@ -260,15 +299,37 @@ Here are the results of the prediction:
 
  ![alt text][result_sign_yield]
  ![alt text][graph_sign_yield]
+ 
+ 
+ * Like expected there was no problem to indicate the "Stop" and "Yield" sign.
+ * The "Speed limit (80km/h)" was indicated right as well. The detection hat no problem to indicate two characters and the "2 closed circle" number 8. With a big distance It detects the "1 closed circle - 1 open circle" number 6 and the "2 open circle" number three  as a possible result. 
+ * The "No vehicles" sign wasn't detected. The detection got the red cirkle of the "No passing" sign und got a horizontal strucktur. 
 
 ---
 
-## TODO 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-## TODO 5. Describe the approach taken for finding a solution.
-## TODO reflection 
-- prprozessing
-- selection images to test
-- layers
-- hüperparameters
-- batchsize 50 - 200
+## Reflection 
+
+
+### Pre-Prozessing
+
+Preprozessing the images had a very strong influence on the detection result.
+min max normalisation did a good job.
+After analysing the images I recognized the the shape of the signs are verry clear strucktured. So the shape could by a strong characteristic of the sign and should come to the fore.  To work with grayscaled images with gaussian blur filtering and Canny edge detection  could be an intersting approach. 
+
+### Egalize number of images by class 
+
+The training set has a strong influence on the detection result.
+I my case the effect wasn'd to big. The reason could be, that most of the testet images were in a class where the original training set had a relativly high number of pictures. (Class 5 Speed limit (80km/h), Class 7 Speed limit (100km/h)) or the shape was easy to detect (Class 14 Stop) 
+The my be statisticaly more efficient ways to fill up the week classes, but it would by better to encrease the number of original pictures.
+
+### Training epochs and hyperparameters
+
+The results for same configuration differ. The reason are the random start weights and biases. It is worth to run the training a couple of times and take the best result.
+
+It takes a lot of time to train the network. So I had to make a compromize between batchsize, epochs, architectur complexity and training set size to find the best architekture. It is importand to keep in mind that in this sence the trend of the Validation and Test Accuracy are not linear.
+
+### New image selection
+
+I did not expect the quality of the detection so far. To get more information about the quality of the detection it would be good to choose more dificult examples. 
+
