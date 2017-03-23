@@ -35,7 +35,7 @@ The goals / steps of this project are the following:
 [graph_sign_yield]: ./writeup_images/graph_sign_yield.png "Graph for yield"
 
 ### Files included
-*  The programmed Solution [Traffic_Sign_Classifier.ipynb](https://github.com/kaiulrich/kulrich_CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb) 
+*  The programmed solution [Traffic_Sign_Classifier.ipynb](https://github.com/kaiulrich/kulrich_CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb) 
 
 * The saved result  [Traffic_Sign_Classifier.html](./Traffic_Sign_Classifier.html)
 
@@ -48,12 +48,12 @@ The goals / steps of this project are the following:
 
 #### 1.  Basic data summary
 
-for the code look at "Provide a Basic Summary of the Data Set Using Python, Numpy and/or Pandas" chapter of the ipython notebook. 
+For the code look at "Provide a Basic Summary of the Data Set Using Python, Numpy and/or Pandas" chapter of the ipython notebook. 
 
-Number of training examples = 34799
-Number of testing examples = 12630
-Image data shape = (32, 32, 3)
-Number of classes = 43
+* Number of training examples = 34799
+* Number of testing examples = 12630
+* Image data shape = (32, 32, 3)
+* Number of classes = 43
 
 
 #### 2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
@@ -63,11 +63,11 @@ Here is an exploratory visualization of the data set.
 
 #### Example training data by class
 
-for the code look at "Trainingdata images before preprozessing" chapter of the ipython notebook. 
+For the code look at "Trainingdata images before preprozessing" chapter of the ipython notebook. 
 ![alt text][trainingdata_org]
 
 #### Histogram of training data
-for the code look at "Histogram of training data" chapter of the ipython notebook. 
+For the code look at "Histogram of training data" chapter of the ipython notebook. 
 ![alt text][trainingdata_org_histogram]
 
 ---
@@ -75,14 +75,14 @@ for the code look at "Histogram of training data" chapter of the ipython noteboo
 
 ### Design and Test a Model Architecture
 
-#### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+#### 1. Describe how, and identify where in your code you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
 ##### a. Egalize number of images by class
 Looking at the test data, I noticed that the number of images by class are not uniformly distributed.
-There some very strong classes like Class 1 or 2 and some very week represented images like Class 0 or 6. 
-In the first step I egalized the numbers of images by class and filled the classes up  with random affine transform (rotated, shifted and sheared) images of this class. 
+There some very strong classes like Class 1 or 2 and some very weak represented images like Class 0 or 6. 
+In the first step I egalized the numbers of images by class and filled the classes up with random affine transformed (rotated, shifted and sheared) images of this class. 
 
-for the code look at "Egalize number of images by classes" chapter of the ipython notebook. 
+For the code look at "Egalize number of images by classes" chapter of the ipython notebook. 
 
 ![alt text][affine_transformed]
 
@@ -93,9 +93,9 @@ At the end each class has a minimum of 1500 images by class.
 
 ##### b. Image normalisation
 
-Than I chosed a min max normalisation to pre-process the data. 
+Then I chose a min max normalisation to pre-process the data. 
 I wanted to keep the 3 color layers and push the contrasts.
-for the code look at "Pre-process the Data Set" chapter of the ipython notebook. 
+For the code look at "Pre-process the Data Set" chapter of the ipython notebook. 
 
 ![alt text][trainingdata_preprozessed]
 
@@ -108,12 +108,12 @@ For the code look at "Split data" chapter of the ipython notebook.
 
 #### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. 
 
-To cross validate my model, I randomly split the training data into a training set (80 %) and validation set (20%). I did this by using 'train_test_split' function of the sklearn.model_selection package. 
+To crossvalidate my model, I randomly split the training data into a training set (80 %) and a validation set (20%). I did this by using 'train_test_split' function of the sklearn.model_selection package. 
 For the code look at "Split data" chapter of the ipython notebook. 
 
-My original training set had 34799 images. 
-My final training set had 53904 number of images. 
-My final validation set and test set had 13476 and 12630 number of images.
+* My original training set had 34799 images. 
+* My final training set had 53904 number of images. 
+* My final validation set and test set had 13476 and 12630 number of images.
 
 ---
 
@@ -181,31 +181,31 @@ My final model results were:
 * Test Accuracy = 0.939
 
 
-I started with [LeNet-5](http://yann.lecun.com/exdb/lenet/)  Architekture for letter recognition. LeNet-5 solved a similar kind of problem: 
+I started with [LeNet-5](http://yann.lecun.com/exdb/lenet/)  Architecture for letter recognition. LeNet-5 solved a similar kind of problem: 
 "LeNet-5 Network is designed to recognize visual patterns directly from pixel images with minimal preprocessing.  It can recognize patterns with extreme variability (such as handwritten characters), and with robustness to distortions and simple geometric transformations."
  
  The first test with the Network and unpreprozessed images  had a Validation and Test Accurcy around 0.7. 
 
-The next configuration I tesed had been with a min max normalisation an the Validation encreased over 0.92 the Test Accurcy 0.83 
-After adding the the trainingdata egalisation it wasn't mutch different.
+The next configuration I tested had been with a min max normalisation an the Validation encreased over 0.92 the Test Accurcy 0.83.
+After adding the the trainingdata egalisation it wasn't much different.
 
-Than made was to encrease the sigma ( randomly defines variables for the weights and biases for each layer) from 0.1 to 0.2. The Validation Accurcy encreased over 0.95. the Test Accurcy stayed arround 0.870
+Then I encreased the sigma (it randomly defines variables for the weights and biases for each layer) from 0.1 to 0.2. The Validation Accurcy encreased over 0.95. The Test Accurcy stayed arround 0.870
 
-Than I added the dropout layers. I chosed to put them to the first and second Fully Connected layers. The Validation Accurcy encreased a bit 0.970. But Test Accurcy enccreased to 0.927. But the Validation Accurcy encreased a lot slower.
+Then I added the dropout layers. I chose to put them to the first and second fully connected layers. The Validation Accurcy encreased a bit by 0.970. But Test Accurcy encreased to 0.927. However, the Validation Accurcy encreased a lot slower.
 
-Than I chaned the number of full connected layer, I tested 2, 3  layers.
-I got vollowing results: 
+Then I changed the number of full connected layer: I tested 2 and 3  layers.
+I received the following results: 
 
-2 full connected layers
+2 fully connected layers
 * Validation Accuracy = 0.972
 * Test Accuracy = 0.921
 
-3 full connected layers
+3 fully connected layers
 * Validation Accuracy = 0.970
 * Test Accuracy = 0.927
 
 
-I decided to stay with the 3 full connected layers. because the cost are moderate and test and Test Accuracy was better.
+I decided to stay with the 3 fully connected layers. because the cost is moderate and Test Accuracy was better.
 
 
 Now I started to encrease the number of epochs.
@@ -227,7 +227,7 @@ Now I started to encrease the number of epochs.
 * Test Accurcy 0.931
 
 
-At 300 epochs the Validation Accurcy still increases  but the Test Accurcy decreases. This may indicate an offerfitting.
+At 300 epochs the Validation Accurcy still increases  but the Test Accurcy decreases. This may indicate an overfitting.
 I decided to stay with the 200 epoch training cycle.
  ---
 
@@ -241,14 +241,14 @@ Here are five German traffic signs that I found on the web:
 
 I was sure that the stop and the yield image were easy. They have a unic shape. 
 The speed limit 80 image is more difficult, because the 20 30 60  signs are very similar. 
-I was sure the No vehicles sign is dificult to detect, because it has an white square sign below.
+I was sure the No vehicles sign was dificult to detect, because it has an white square sign below.
 
 ---
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80% (0.800). This compares favorably to the accuracy on the test set of 0.939.
-For the code look at "Analyze Performance" 
+For the code look at "Analyze Performance".
 
 ---
 
@@ -306,8 +306,8 @@ Here are the results of the prediction:
  
  
  * Like expected there was no problem to indicate the "Stop" and "Yield" sign.
- * The "Speed limit (80km/h)" was indicated right as well. The detection hat no problem to indicate two characters and the "2 closed circle" number 8. With a big distance It detects the "1 closed circle - 1 open circle" number 6 and the "2 open circle" number three  as a possible result. 
- * The "No vehicles" sign wasn't detected. The detection got the red cirkle of the "No passing" sign und got a horizontal strucktur. 
+ * The "Speed limit (80km/h)" was indicated right as well. The detection had no problem to indicate two characters and the "2 closed circle" number 8. With a big distance it detected the "1 closed circle - 1 open circle" number 6 and the "2 open circle" number three  as a possible result. 
+ * The "No vehicles" sign wasn't detected. The detection got the red circle of the "No passing" sign und got a horizontal structure. 
 
 ---
 
@@ -318,22 +318,25 @@ Here are the results of the prediction:
 ### Pre-Prozessing
 
 Preprozessing the images had a very strong influence on the detection result.
-min max normalisation did a good job.
-After analysing the images I recognized the the shape of the signs are verry clear strucktured. So the shape could by a strong characteristic of the sign and should come to the fore.  To work with grayscaled images with gaussian blur filtering and Canny edge detection  could be an intersting approach. 
+Min max normalisation did a good job.
+After analyzing the images I recognized that the shape of the signs were very clearly structured. So the shape could be a strong characteristic of the sign and should come to the fore.  To work with grayscaled images with gaussian blur filtering and canny edge detection could be an interesting approach. 
 
 ### Egalize number of images by class 
 
 The training set has a strong influence on the detection result.
-I my case the effect wasn'd to big. The reason could be, that most of the testet images were in a class where the original training set had a relativly high number of pictures. (Class 5 Speed limit (80km/h), Class 7 Speed limit (100km/h)) or the shape was easy to detect (Class 14 Stop) 
-The my be statisticaly more efficient ways to fill up the week classes, but it would by better to encrease the number of original pictures.
+I my case the effect wasn't too big. The reason could be that most of the testet images were in a class where the original training set had a relatively high number of pictures. (Class 5 Speed limit (80km/h), Class 7 Speed limit (100km/h)) or the shape was easy to detect (Class 14 Stop) 
+There might be statistically more efficient ways to fill up the weak classes, but it would be better to encrease the number of original pictures.
 
 ### Training epochs and hyperparameters
 
-The results for same configuration differ. The reason are the random start weights and biases. It is worth to run the training a couple of times and take the best result.
+The results for the same configuration differ. The reason is the random start weights and biases. It is worth to run the training a couple of times and take the best result.
 
-It takes a lot of time to train the network. So I had to make a compromize between batchsize, epochs, architectur complexity and training set size to find the best architekture. It is importand to keep in mind that in this sence the trend of the Validation and Test Accuracy are not linear.
+It takes a lot of time to train the network. So I had to make a compromise between batchsize, epochs, architecture complexity and training set size to find the best architecture. It is importand to keep in mind that in this sense the trend of the Validation and Test Accuracy are not linear.
 
 ### New image selection
 
-I did not expect the quality of the detection so far. To get more information about the quality of the detection it would be good to choose more dificult examples. 
+I did not expect the quality of the detection to be so accurate and was positively surprised. To gain more information about the quality of the detection it would be advisable to choose more difficult examples, such as
 
+* Similar figures in the middle of a sign: Class 9 (No passing), Class 10 (No passing for vehicles over 3.5 metric tons)
+* Similar figures in the middle of a sign:  Class 25 (Road work), Class 27 (Pedestrians)
+* A low represented image in the original traing set: Class 0 (Speed limit 20km/h), Class 19 (Dangerous curve to the left)
