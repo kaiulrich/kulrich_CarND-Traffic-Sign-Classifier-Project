@@ -39,6 +39,8 @@ The goals / steps of this project are the following:
 
 * The saved result  [Traffic_Sign_Classifier.html](./Traffic_Sign_Classifier.html)
 
+* The test images [images](https://github.com/kaiulrich/kulrich_CarND-Traffic-Sign-Classifier-Project/blob/master/images)
+
 
 ---
 
