@@ -197,12 +197,12 @@ Than I chaned the number of full connected layer, I tested 2, 3  layers.
 I got vollowing results: 
 
 2 full connected layers
-Validation Accuracy = 0.972
-est Accuracy = 0.921
+* Validation Accuracy = 0.972
+* Test Accuracy = 0.921
 
 3 full connected layers
-Validation Accuracy = 0.970
-Test Accuracy = 0.927
+* Validation Accuracy = 0.970
+* Test Accuracy = 0.927
 
 
 I decided to stay with the 3 full connected layers. because the cost are moderate and test and Test Accuracy was better.
@@ -211,20 +211,20 @@ I decided to stay with the 3 full connected layers. because the cost are moderat
 Now I started to encrease the number of epochs.
 
 50 epochs
-Validation Accurcy 0.970
-Test Accurcy 0.927
+* Validation Accurcy 0.970
+* Test Accurcy 0.927
 
 100 epochs 
-Validation Accurcy 0.977
-Test Accurcy 0.919
+* Validation Accurcy 0.977
+* Test Accurcy 0.919
 
 200 epochs 
-Validation Accurcy 0.976
-Test Accurcy 0.939
+* Validation Accurcy 0.976
+* Test Accurcy 0.939
 
 300 epochs 
-Validation Accurcy 0.977
-Test Accurcy 0.931
+* Validation Accurcy 0.977
+* Test Accurcy 0.931
 
 
 At 300 epochs the Validation Accurcy still increases  but the Test Accurcy decreases. This may indicate an offerfitting.
@@ -260,44 +260,44 @@ Here are the results of the prediction:
 
 **sign to detect : Stop (14)**
 
-14 - Stop                           - 1.0000000000
-29 - Bicycles crossing              - 0.0000000000
-17 - No entry                       - 0.0000000000
+* 14 - Stop                           - 1.0000000000
+* 29 - Bicycles crossing              - 0.0000000000
+* 17 - No entry                       - 0.0000000000
 ![alt text][result_sign_stop]
 ![alt text][graph_sign_stop]
 
 
 **sign to detect : Speed limit (80km/h) (5)**
 
- 5 - Speed limit (80km/h)           - 1.0000000000
- 3 - Speed limit (60km/h)           - 0.0000000075
- 2 - Speed limit (50km/h)           - 0.0000000000
+ * 5 - Speed limit (80km/h)           - 1.0000000000
+ * 3 - Speed limit (60km/h)           - 0.0000000075
+ * 2 - Speed limit (50km/h)           - 0.0000000000
  ![alt text][result_sign_80]
   ![alt text][graph_sign_80]
 
 **sign to detect : Speed limit (100km/h) (7)**
 
- 7 - Speed limit (100km/h)          - 1.0000000000
- 5 - Speed limit (80km/h)           - 0.0000000000
- 2 - Speed limit (50km/h)           - 0.0000000000
+ * 7 - Speed limit (100km/h)          - 1.0000000000
+ * 5 - Speed limit (80km/h)           - 0.0000000000
+ * 2 - Speed limit (50km/h)           - 0.0000000000
 
  ![alt text][result_sign_100]
  ![alt text][graph_sign_100]
 
 **sign to detect : No vehicles (15)**
 
- 9 - No passing                     - 1.0000000000
-13 - Yield                          - 0.0000000077
-10 - No passing for vehicles over 3.5 metric tons - 0.0000000000
+* 9 - No passing                     - 1.0000000000
+* 13 - Yield                          - 0.0000000077
+* 10 - No passing for vehicles over 3.5 metric tons - 0.0000000000
 
  ![alt text][result_sign_no_vehicles]
  ![alt text][graph_sign_no_vehicles]
  
 **sign to detect : Yield (13)**
 
-13 - Yield                          - 1.0000000000
-42 - End of no passing by vehicles over 3.5 metric tons - 0.0000000000
-38 - Keep right                     - 0.0000000000
+* 13 - Yield                          - 1.0000000000
+* 42 - End of no passing by vehicles over 3.5 metric tons - 0.0000000000
+* 38 - Keep right                     - 0.0000000000
 
  ![alt text][result_sign_yield]
  ![alt text][graph_sign_yield]
